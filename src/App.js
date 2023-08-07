@@ -3,12 +3,14 @@ import Main from './pages/Main'
 import Currencies from './pages/Currencies'
 import Price from './pages/Price'
 import './App.css';
+import Nav from './components/Nav';
 
 
 
 function App() {
   return (
     <div className="App">
+      <Nav/>
       <Routes>
         <Route path='/' element={<Main/>}/>
         <Route path='/currencies' element={<Currencies/>}/>
