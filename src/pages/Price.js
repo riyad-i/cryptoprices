@@ -5,11 +5,11 @@ import { useParams } from "react-router-dom";
 export default function Price (props) {
   const [coin, setCoin] = useState(null)
 
-  const apiKey = '166FB4DE-4538-4837-8917-EFCF537203E3'
+  
   const params = useParams()
   const symbol = params.symbol
 
-  const url = `http://rest.coinapi.io/v1/exchangerate/${symbol}/USD?apikey=${apiKey}` 
+  const url = `http://rest.coinapi.io/v1/exchangerate/${symbol}/USD?apikey=${process.env.REACT_APP_COINAPI_KEY}` 
 
   const getCoin = async () => {
     try {
