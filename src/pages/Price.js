@@ -16,6 +16,7 @@ export default function Price (props) {
       const res = await fetch(url)
       const data = await res.json()
       setCoin(data)
+      console.log(data);
     } catch (error) {
       console.log(error);
     }
@@ -28,7 +29,7 @@ export default function Price (props) {
 
     return (
       <div>
-        {coin ? loaded() : loading()}
+        {coin && coin.rate ? loaded() : loading()}
       </div>
 
     )
@@ -40,7 +41,7 @@ export default function Price (props) {
           <h1>
             {coin.asset_id_base}/{coin.asset_id_quote}
           </h1>
-          <h2>{coin.rate}</h2>
+          <h2>{coin.asset_id_quote === 'USD'? `$${coin.rate.toFixed(2)}` : coin.rate.toFixed(2)}</h2>
         </div>
       )
     }
